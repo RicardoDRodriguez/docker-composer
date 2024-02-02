@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS `Tagarelas`.`participantes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `salas_id` INT NOT NULL,
+  `aulas_id` INT NOT NULL,
+  `usuarios_id` INT NOT NULL,
+  `entradaNaSala` INT NULL DEFAULT NULL,
+  `tempoDeFala` INT NULL DEFAULT NULL,
+  `tempoDeFalaAcumulado` INT NULL DEFAULT NULL,
+  `populacaoAcumulada` INT NULL DEFAULT NULL,
+  `percentualAcumuloFala` INT NULL DEFAULT NULL,
+  `fatorDeLorenz` INT NULL DEFAULT NULL,
+  `is_professor` TINYINT(1) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `salas_id` (`salas_id` ASC) VISIBLE,
+  INDEX `aulas_id` (`aulas_id` ASC) VISIBLE,
+  INDEX `usuarios_id` (`usuarios_id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `Tagarelas`.`salas` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `Tagarelas`.`usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `email` TEXT NULL DEFAULT NULL,
+  `avatar` VARCHAR(500) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+CREATE TABLE IF NOT EXISTS `Tagarelas`.`aulas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(255) NULL DEFAULT NULL,
+  `conteudo` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
