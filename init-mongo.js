@@ -1,9 +1,13 @@
 // init-mongo.js
 db.createUser({
-    user: "ricardo",
-    pwd: "123456",
-    roles: ["readWrite", "Tagarelas"]
-  });
-  
+  user: "Ricardo",
+  pwd: "123456",
+  roles: [
+    { role: "readWrite", db: "Tagarelas" },
+    // Adicione outros papéis conforme necessário
+  ]
+})
+
   // Adicione mais comandos conforme necessário
+  
   
